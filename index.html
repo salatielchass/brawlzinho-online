@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Brawlzinho Online</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loading" class="screen active">
+  <div class="loading-title">SALATIEL DEVELOPER</div>
+  <div class="loading-subtitle">PREPARANDO RECURSOS...</div>
+  <div class="loading-track"><div id="loadingBar"></div></div>
+</div>
+
+<section id="menu" class="screen hidden">
+  <div class="logo"><span>BRAWL</span>ZINHO</div>
+  <p class="subtitle">Uma briga simples. Uma diversão enorme.</p>
+
+  <div class="buttons">
+    <button class="btn" id="soloBtn">JOGAR SOZINHO</button>
+    <button class="btn online" id="onlineBtn">MULTIPLAYER ONLINE</button>
+    <button class="btn ghost" id="howBtn">COMO JOGAR</button>
+  </div>
+
+  <p class="tiny">PC • Multiplayer por salas • Socket.IO Feito por Salatiel</p>
+</section>
+
+<section id="room" class="screen hidden">
+  <h1>MULTIPLAYER ONLINE</h1>
+
+  <div class="panel">
+    <button class="btn online" id="createBtn">CRIAR SALA</button>
+
+    <div id="codeBox" class="code-box hidden">
+      <small>CÓDIGO DA SALA</small>
+      <strong id="roomCode">------</strong>
+      <button class="btn ghost" id="copyBtn">COPIAR CÓDIGO</button>
+    </div>
+
+    <div class="join">
+      <input id="roomInput" maxlength="6" placeholder="CÓDIGO DA SALA" autocomplete="off">
+      <button class="btn" id="joinBtn">ENTRAR</button>
+    </div>
+
+    <p id="roomStatus">Crie uma sala ou entre com um código.</p>
+
+    <button class="btn ghost" id="backRoom">VOLTAR</button>
+  </div>
+</section>
+
+<section id="how" class="screen hidden">
+  <h1>COMO JOGAR</h1>
+  <div class="panel text">
+    <p><b>Você:</b> A/D andar • W pular • F soco • G chute</p>
+    <p>No online, cada jogador joga do próprio computador. Um cria a sala e manda o código para o outro.</p>
+    <button class="btn ghost" id="backHow">VOLTAR</button>
+  </div>
+</section>
+
+<section id="game" class="game hidden">
+  <div class="hud">
+    <div class="hud-side">
+      <b id="p1Name">PLAYER 1</b>
+      <div class="health"><i id="p1Hp"></i></div>
+    </div>
+
+    <div id="timer">60</div>
+
+    <div class="hud-side right">
+      <b id="p2Name">PLAYER 2</b>
+      <div class="health"><i id="p2Hp"></i></div>
+    </div>
+  </div>
+
+  <canvas id="gameCanvas"></canvas>
+<div id="mobileControls">
+
+  <div class="moveButtons">
+    <button data-key="a">◀</button>
+    <button data-key="d">▶</button>
+    <button data-key=" " >⬆</button>
+  </div>
+
+  <div class="attackButtons">
+    <button data-key="f">👊</button>
+    <button data-key="g">🦶</button>
+  </div>
+
+</div>
+  <div class="game-info">
+    <span id="role">P1</span>
+    <span id="roomLabel">SALA ------</span>
+    <span>A D W F G • ESC</span>
+  </div>
+
+  <div id="message" class="toast hidden"></div>
+
+  <div id="gameOver" class="overlay hidden">
+    <div class="result">
+      <h2 id="resultTitle">FIM DA PARTIDA</h2>
+      <button class="btn" id="againBtn">JOGAR NOVAMENTE</button>
+      <button class="btn ghost" id="gameMenuBtn">MENU</button>
+    </div>
+  </div>
+  <div id="mobile-controls">
+  <div class="mobile-left">
+    <button data-key="a">◀</button>
+    <button data-key="d">▶</button>
+  </div>
+
+  <button data-key="w">▲</button>
+
+  <div class="mobile-right">
+    <button data-key="f">👊</button>
+    <button data-key="g">🦶</button>
+  </div>
+</div>
+</section>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="ss.js"></script>
+</body>
+</html>
