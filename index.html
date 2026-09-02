@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Brawlzinho Online</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
 
@@ -14,12 +14,14 @@
   <div class="loading-track"><div id="loadingBar"></div></div>
 </div>
 
+<!-- MENU PRINCIPAL -->
 <section id="menu" class="screen hidden">
   <div class="logo"><span>BRAWL</span>ZINHO</div>
   <p class="subtitle">Uma briga simples. Uma diversão enorme.</p>
 
   <div class="buttons">
     <button class="btn" id="soloBtn">JOGAR SOZINHO</button>
+    <button class="btn" id="shopBtn" style="background: #f59e0b;">🛒 LOJA / LUTADORES</button>
     <button class="btn online" id="onlineBtn">MULTIPLAYER ONLINE</button>
     <button class="btn ghost" id="howBtn">COMO JOGAR</button>
   </div>
@@ -27,6 +29,20 @@
   <p class="tiny">PC • Multiplayer por salas • Socket.IO Feito por Salatiel</p>
 </section>
 
+<!-- SELEÇÃO DE LUTADORES E LOJA -->
+<section id="fighterSelect" class="screen hidden">
+  <h1>ESCOLHA SEU LUTADOR</h1>
+
+  <div class="player-stats">
+    <span>💰 MOEDAS: <b id="playerCoins">0</b></span>
+  </div>
+
+  <div id="fighterCards" class="fighter-cards"></div>
+
+  <button class="btn ghost" id="backFighter">VOLTAR AO MENU</button>
+</section>
+
+<!-- MULTIPLAYER -->
 <section id="room" class="screen hidden">
   <h1>MULTIPLAYER ONLINE</h1>
 
@@ -50,15 +66,17 @@
   </div>
 </section>
 
+<!-- COMO JOGAR -->
 <section id="how" class="screen hidden">
   <h1>COMO JOGAR</h1>
   <div class="panel text">
-    <p><b>Você:</b> A/D andar • W pular • F soco • G chute</p>
+    <p><b>Você:</b> A/D andar • Espaço pular • F soco • G super</p>
     <p>No online, cada jogador joga do próprio computador. Um cria a sala e manda o código para o outro.</p>
     <button class="btn ghost" id="backHow">VOLTAR</button>
   </div>
 </section>
 
+<!-- TELA DO JOGO -->
 <section id="game" class="game hidden">
   <div class="hud">
     <div class="hud-side">
@@ -66,7 +84,7 @@
       <div class="health"><i id="p1Hp"></i></div>
     </div>
 
-    <div id="timer">60</div>
+    <div id="timer">240</div>
 
     <div class="hud-side right">
       <b id="p2Name">PLAYER 2</b>
@@ -75,24 +93,24 @@
   </div>
 
   <canvas id="gameCanvas"></canvas>
-<div id="mobileControls">
 
-  <div class="moveButtons">
-    <button data-key="a">◀</button>
-    <button data-key="d">▶</button>
-    <button data-key=" " >⬆</button>
+  <div id="mobileControls">
+    <div class="moveButtons">
+      <button data-key="a">◀</button>
+      <button data-key="d">▶</button>
+      <button data-key=" ">⬆</button>
+    </div>
+
+    <div class="attackButtons">
+      <button data-key="f">👊</button>
+      <button data-key="g">⚡</button>
+    </div>
   </div>
 
-  <div class="attackButtons">
-    <button data-key="f">👊</button>
-    <button data-key="g">🦶</button>
-  </div>
-
-</div>
   <div class="game-info">
     <span id="role">P1</span>
-    <span id="roomLabel">SALA ------</span>
-    <span>A D W F G • ESC</span>
+    <span id="roomLabel">SOLO</span>
+    <span>A D ESPAÇO F G • ESC</span>
   </div>
 
   <div id="message" class="toast hidden"></div>
@@ -104,22 +122,9 @@
       <button class="btn ghost" id="gameMenuBtn">MENU</button>
     </div>
   </div>
-  <div id="mobile-controls">
-  <div class="mobile-left">
-    <button data-key="a">◀</button>
-    <button data-key="d">▶</button>
-  </div>
-
-  <button data-key="w">▲</button>
-
-  <div class="mobile-right">
-    <button data-key="f">👊</button>
-    <button data-key="g">🦶</button>
-  </div>
-</div>
 </section>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="ss.js"></script>
+<script src="Ses.js"></script>
 </body>
 </html>
