@@ -55,6 +55,88 @@ h1{font:normal clamp(26px,5vw,42px)/1.1 "Archivo Black",sans-serif;margin-bottom
 .code-box strong{display:block;color:#ffd34d;font:normal 38px/1.2 "Archivo Black",sans-serif;letter-spacing:6px;margin:4px 0 10px}
 #roomStatus{color:#cbd5e1;font-size:13px;line-height:1.5}
 
+/* ESTILOS DA LOJA E SELEÇÃO DE LUTADORES */
+.player-stats {
+  font-size: 18px;
+  font-weight: 900;
+  color: #ffd34d;
+  margin-bottom: 20px;
+  background: #0f172acc;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 1px solid #ffd34d44;
+}
+
+.fighter-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  max-width: 900px;
+}
+
+.fighter-card {
+  background: #1e293bd9;
+  border: 2px solid #ffffff20;
+  border-radius: 16px;
+  padding: 20px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  backdrop-filter: blur(8px);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.fighter-card:hover {
+  transform: translateY(-5px);
+  border-color: #00f2fe;
+}
+
+.fighter-card.selected {
+  border-color: #ffd34d;
+  box-shadow: 0 0 20px #ffd34d55;
+  background: #283548f0;
+}
+
+.fighter-card h2 {
+  font-family: "Archivo Black", sans-serif;
+  font-size: 20px;
+  color: #fff;
+}
+
+.fighter-card p {
+  font-size: 13px;
+  color: #cbd5e1;
+  font-weight: 700;
+}
+
+.fighter-card .btn,
+.fighter-card .fighterChoose,
+.fighter-card .fighterBuy {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 0;
+  border-radius: 10px;
+  font-weight: 900;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.fighterChoose {
+  background: linear-gradient(135deg, #10b981, #34d399);
+  color: #000;
+}
+
+.fighterBuy {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: #000;
+}
+
 .game{position:absolute;inset:0;background:#0b0d18}
 .hud{position:absolute;z-index:5;top:0;left:0;width:100%;padding:18px;display:flex;justify-content:space-between;align-items:flex-start;gap:20px;pointer-events:none}
 .hud-side{width:36%;display:flex;flex-direction:column;gap:5px}
@@ -78,9 +160,7 @@ h1{font:normal clamp(26px,5vw,42px)/1.1 "Archivo Black",sans-serif;margin-bottom
   .hud{padding:10px;gap:8px}.hud-side{width:39%}#timer{font-size:21px;padding:5px 9px}.game-info{font-size:10px}
 }
 
-
 @media (orientation: portrait) {
-
   #game::before {
     content: "🔄 VIRE O CELULAR";
     position: absolute;
@@ -95,7 +175,6 @@ h1{font:normal clamp(26px,5vw,42px)/1.1 "Archivo Black",sans-serif;margin-bottom
     font-weight: 900;
     text-align: center;
   }
-
 }
 
 #mobileControls{
@@ -139,4 +218,23 @@ h1{font:normal clamp(26px,5vw,42px)/1.1 "Archivo Black",sans-serif;margin-bottom
   #mobileControls{
     display:flex;
   }
+}
+
+#joseCutscene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 999999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#joseCutscene video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
